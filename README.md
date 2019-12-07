@@ -1,5 +1,5 @@
 # Template for using R on a HPC with Slurm
-
+[![Build Status](https://cloud.drone.io/api/badges/ndevln/slurm_template_for_R_Language/status.svg)](https://cloud.drone.io/ndevln/slurm_template_for_R_Language)
 ## How to run
 
 **Clone git repository**
