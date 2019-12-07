@@ -10,7 +10,7 @@ ncores <- args[1]
 print(paste0(Sys.time(), ": Cores available: ", ncores))
 
 ## Load pacman. This library load packages like the library statement. It will install missing packages instead of failing.
-if (!require("pacman")) install.packages("pacman")
+if (!require("pacman")) install.packages("pacman", repos = c("https://cloud.r-project.org"))
 pacman::p_load(foreach, doParallel)
 print(paste0(Sys.time(), ": Librarys loaded"))
 

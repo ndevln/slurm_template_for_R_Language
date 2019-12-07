@@ -1,0 +1,42 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+workspace:
+  base: /root/
+  path: slurm_template_for_R_Language
+
+steps:
+- name: r_test
+  image: r-base
+  volumes:
+  - name: r-libs
+    path: /root/R/library
+  commands:
+  - Rscript example_r_script.R 1
+
+
+- name: slurm_test
+  image: giovtorres/docker-centos7-slurm:latest
+  volumes:
+  - name: r-libs
+    path: /root/R/library
+  commands:
+  - yum -y install R
+  - sed -i "/ControlMachine=/d" /etc/slurm/slurm.conf
+  - echo "ControlMachine=$(hostname)" >> /etc/slurm/slurm.conf
+  - /sbin/tini -- /usr/local/bin/docker-entrypoint.sh
+  - sleep 10
+  - supervisorctl status
+  - sinfo
+  - sbatch slurm_job.sh
+  - sleep 30
+  - cat slurm-output.2.out
+  - ls
+  - . test/test_result.sh
+
+volumes:
+- name: r-libs
+  temp: {}
+...
