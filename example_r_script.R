@@ -4,12 +4,12 @@
 
 print(paste0(Sys.time(), ": Start"))
 
-## get commandline parameters
+## get command line parameters
 args <- commandArgs(trailingOnly = TRUE)
 ncores <- args[1]
 print(paste0(Sys.time(), ": Cores available: ", ncores))
 
-## Load pacman. This library load packages like the library statement. It will install missing packages instead of failing.
+## Load pacman. This library loads packages similar to the library statement, but it will install missing packages instead of failing.
 if (!require("pacman")) install.packages("pacman", repos = c("https://cloud.r-project.org"))
 pacman::p_load(foreach, doParallel)
 print(paste0(Sys.time(), ": Librarys loaded"))
@@ -20,7 +20,7 @@ data_vector <- 1:200
 ## Run Code
 if (ncores > 1) {
 	## Most data intensive work-loads are slower when parallelized in R. Better use data.table.
-	## This is only a minimal not optimized example for parallelization.
+	## This is only a minimal, not optimized example for parallelization.
 	registerDoParallel(cores = ncores)  
 	out <- foreach (i = data_vector, .combine = c) %dopar% {
 	  sqrt(i)

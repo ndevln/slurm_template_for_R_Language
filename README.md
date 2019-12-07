@@ -10,21 +10,21 @@ cd slurm_template_for_R_Language
 ```
 
 **Optional: Modify files**
-1. Modify R Library Location in example_r_script.R (line 3)
-2. Add E-Mail-Adress to slurm_job.sh (line 11)
-3. Check if QOS Medium is avaliable: `sacctmgr show qos format=name,priority`
+1. Modify R library location in example_r_script.R (line 3)
+2. Add your e-mail address to slurm_job.sh (line 11)
+3. Check if QOS medium is avaliable: `sacctmgr show qos format=name,priority` (slurm_job.sh: line 6)
 
 **Start Slurm job**
 ```bash
 sbatch slurm_job.sh
 ```
 
-**Check job status** (replace username with your username on the server):
+**Check job status** (replace 'username' with your username on the server):
 ```bash
 squeue -u username
 ```
 
-### This skript was tested on the High-Performance-Cluster of the Freie Universität Berlin, Germany
+### This script was tested on the High-Performance-Cluster of the Freie Universität Berlin, Germany
 My thanks go to our awesome HPC Team.
 
 [High-Performance Computing at ZEDAT](https://www.fu-berlin.de/en/sites/high-performance-computing/index.html)
