@@ -1,6 +1,10 @@
 ## define own library, if you don't want to use the system library
 ## If you want to install packages, they will stay in the same location between R version upgrades
-.libPaths("~/R/library")
+library_path = "~/R/library"
+
+## Check if library already exists and set as default
+dir.create(library_path, showWarnings = FALSE)
+.libPaths(library_path)
 
 print(paste0(Sys.time(), ": Start"))
 

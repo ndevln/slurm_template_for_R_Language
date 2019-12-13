@@ -12,7 +12,7 @@ steps:
   image: r-base
   volumes:
   - name: r-libs
-    path: /root/R/library
+    path: /root/R
   commands:
   - Rscript example_r_script.R 1
 
@@ -21,7 +21,7 @@ steps:
   image: giovtorres/docker-centos7-slurm:latest
   volumes:
   - name: r-libs
-    path: /root/R/library
+    path: /root/R
   commands:
   - yum -y install R
   - sed -i "/ControlMachine=/d" /etc/slurm/slurm.conf
