@@ -13,6 +13,7 @@ cd slurm_template_for_R_Language
 1. Modify R library location in example_r_script.R (line 3)
 2. Add your e-mail address to slurm_job.sh (line 11)
 3. Check if QOS medium is avaliable: `sacctmgr show qos format=name,priority` (slurm_job.sh: line 6)
+4. Load the R module if needed (on CentOS/RHEL) (slurm_job.sh: line 13).
 
 **Start Slurm job**
 ```bash

@@ -10,5 +10,7 @@
 #SBATCH -o slurm-output.%j.out					# name of output file, %j is the job ID
 ##SBATCH --mail-user=mail@domain.com  # <-		# replace with your own address and uncomment
 
+# module load R 								# Load R module (often needed on CentOS/RHEL Cluster)
+
 cd ~/slurm_template_for_R_Language            		# replace with your own directory
 Rscript example_r_script.R ${SLURM_CPUS_PER_TASK}	# replace with your own program
